@@ -1,0 +1,76 @@
+.option {
+    display: flex;
+    align-items: center;
+    padding: .9rem;
+    color: white;
+    gap: 1.5rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.option:hover, .active {
+    background-color: #266BD0;
+}
+
+.circle-wrapper {
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle {
+    position: relative;
+    width: 12px;
+    height: 12px;
+    clip-path: circle(6px);
+    background-color: white;
+}
+
+.circle::after {
+    content: "";
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    background-color: white;
+    clip-path: circle(4.5px);
+    background-color: #2E83F6;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+
+.active .circle::after {
+    background-color: white;
+}
+
+.active .circle::before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    clip-path: circle(7px);
+    background-color: white;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    opacity: 0.5;
+}
+.active .circle {
+    background-color: #2E83F6;
+    transform-origin: 50% 50%;
+    transform: scale(1.2);
+}
+
+input {
+    width: 10%;
+    margin: 0;
+    cursor: pointer;
+}
+
+label {
+    text-transform: capitalize;
+    cursor: pointer;
+}
