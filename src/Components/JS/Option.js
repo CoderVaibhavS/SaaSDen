@@ -10,7 +10,7 @@ export default function Option(props) {
             document.querySelector(`#${props.option}`).classList.add('active');
         }
         else document.querySelector(`#${props.option}`).classList.remove('active')
-    }, [props.active])
+    }, [props.active]);
 
   return (
     <div className='option' id={props.option}>

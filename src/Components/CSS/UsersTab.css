@@ -1,0 +1,32 @@
+.users {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F0F1F0;
+    position: relative;
+}
+
+.users-wrapper {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+}
+
+.list-head-wrapper {
+    padding: .7rem 1.3rem;
+    background-color: #D9D9D9;
+    font-weight: 900;
+    border-bottom: 2px solid #CCD8E8;
+    display: flex;
+    align-items: center;
+}
+
+.list-head {
+    margin-left: .7rem;
+}
+
+.users-list {
+    margin: 0;
+    list-style: none;
+}

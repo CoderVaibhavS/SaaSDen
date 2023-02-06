@@ -1,12 +1,12 @@
 import './App.css';
 import Sidebar from './Components/JS/Sidebar';
-import Users from './Components/JS/Users';
+import UsersTab from './Components/JS/UsersTab';
 
 function App() {
   return (
     <div className="App">
       <Sidebar />
-      <Users />
+      <UsersTab />
     </div>
   );
 }
