@@ -1,12 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../CSS/Popup.css'
-import anshal from '../../anshal.png'
 
 export default function PopUp(props) {
+
+    const [image, setImage] = useState('');
+
+    const handleClick = async (evt) => {
+        evt.stopPropagation();
+        try {
+            let imageData = await fetch(`https://jsonplaceholder.typicode.com/photos/${props.user.id}`, { method: 'GET' });
+            let image = await imageData.json();
+            setImage(image.url);
+          }
+          catch (err) {
+            alert("Error in fetching data. Please check your network connection");
+          }
+    }
+
+    useEffect(() => {}, [image])
+
     return (
-        <div className='popup' onClick={(evt) => {evt.stopPropagation()}}>
+        <div className='popup' onClick={handleClick}>
             <div className="popup-wrapper">
-            <img src={anshal} alt="" />
+            <img style={image === '' ? {display: 'none'} : {display: 'block'}} src={image} alt="" />
             <div className='details'>
                 <h2 className="name">{props.user.name}</h2>
                 <span className="username">{props.user.username}</span>
