@@ -28,6 +28,10 @@
     cursor: pointer;
 }
 
+.searched {
+    background-color: yellow;
+}
+
 .user:hover {
     background-color: #e9e9e9;
 }

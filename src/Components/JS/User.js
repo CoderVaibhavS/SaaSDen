@@ -19,7 +19,7 @@ export default function User(props) {
   useEffect(() => {}, [checked])
 
   return (
-    <li className='user' id={`user-${props.idx}`} onClick={checked ? props.handleClick : null} >
+    <li className={props.searched ? 'user searched' : 'user'} id={`user-${props.idx}`} onClick={checked ? props.handleClick : null} >
       <div>
         <div className="bullet"></div>
         <div className="username" id={`username-${props.idx}`}>{props.user.name}</div>

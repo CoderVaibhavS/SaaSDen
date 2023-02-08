@@ -1,10 +1,30 @@
 .users {
-    width: 100%;
+    width: 80vw;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #F0F1F0;
     position: relative;
+}
+
+.header {
+    position: fixed;
+    width: calc(80vw - 4.6rem);
+    padding: 1rem 2.3rem;
+    top: 0;
+    background-color: #fefeff;    
+    border-top: 2px solid #ADBFDD;
+    border-bottom: 2px solid #C4CFE2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tabname {
+    color: #5B7EB8;
+    font-weight: 900;
+    font-size: 1.2rem;
 }
 
 .users-wrapper {
