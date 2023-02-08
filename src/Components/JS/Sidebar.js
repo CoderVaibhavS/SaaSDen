@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import '../CSS/Sidebar.css'
 import Option from './Option'
 
@@ -14,9 +15,9 @@ export default function Sidebar() {
         <span>Dashboard</span>
         </div>
         <div className='options'>
-            <div onClick={() => setActive(1)}><Option option='users' active={active === 1 ? true : false} /></div>
-            <div onClick={() => setActive(2)}><Option option='groups' active={active === 2 ? true : false} /></div>
-            <div onClick={() => setActive(3)}><Option option='lorem' active={active === 3 ? true : false} /></div>
+            <Link to='/'><div onClick={() => setActive(1)}><Option option='users' active={active === 1 ? true : false} /></div></Link>
+            <Link to='/groups'><div onClick={() => setActive(2)}><Option option='groups' active={active === 2 ? true : false} /></div></Link>
+            <Link to='/lorem'><div onClick={() => setActive(3)}><Option option='lorem' active={active === 3 ? true : false} /></div></Link>
         </div>
     </div>
   )
