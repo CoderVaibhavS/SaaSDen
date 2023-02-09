@@ -12,12 +12,10 @@ export default function GroupsTab(props) {
       users.forEach(user => {
         let webArr = user.website.split('.');
         let subd = webArr[1];
-        console.log(subd)
         if(!subdomains.includes(subd)) {
           subdomains.push(subd);
           setSubdomains(subdomains);
         }
-        console.log(subdomains)
       })
     }
 

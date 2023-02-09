@@ -4,27 +4,35 @@ import '../CSS/User.css'
 
 export default function User(props) {
 
-  const [checked, setChecked] = useState(true);
+  const [checked, setChecked] = useState(props.checked ? true : false);
 
   const handleChange = (idx) => {
     setChecked(!checked);
-    if(checked) {
-      document.querySelector(`#username-${idx}`).classList.add('checked');
+    if (checked) {
+      document.querySelector(`#user-${idx}-checked`).classList.add('checked');
+      document.querySelector(`#user-${idx}-notchecked`).classList.add('checked');
     }
-    else{
-      document.querySelector(`#username-${idx}`).classList.remove('checked');
+    else {
+      document.querySelector(`#user-${idx}-checked`).classList.remove('checked');
+      document.querySelector(`#user-${idx}-notchecked`).classList.remove('checked');
     }
+    props.onDisable(idx, checked)
   }
 
-  useEffect(() => {}, [checked])
+  useEffect(() => { }, [checked])
 
   return (
-    <li className={props.searched ? 'user searched' : 'user'} id={`user-${props.idx}`} onClick={checked ? props.handleClick : null} >
+    <li
+      className={props.searched ? 'user searched' : 'user'}
+      id={props.checked ? `user-${props.idx}-checked` : `user-${props.idx}-notchecked`}
+      onClick={props.checked ? props.handleClick : null}>
       <div>
         <div className="bullet"></div>
         <div className="username" id={`username-${props.idx}`}>{props.user.name}</div>
-        </div>
-        <Switch checked={checked} onChange={() => handleChange(props.idx)} />
+      </div>
+      <Switch
+        checked={props.checked ? true : false}
+        onChange={() => handleChange(props.idx)} />
     </li>
   )
 }
