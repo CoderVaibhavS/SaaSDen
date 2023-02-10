@@ -24,11 +24,11 @@ export default function User(props) {
   return (
     <li
       className={props.searched ? 'user searched' : 'user'}
-      id={props.checked ? `user-${props.idx}-checked` : `user-${props.idx}-notchecked`}
-      onClick={props.checked ? props.handleClick : null}>
+      id={props.checked ? `user-${props.idx}-checked` : `user-${props.idx}-notchecked`}>
       <div>
         <div className="bullet"></div>
-        <div className="username" id={`username-${props.idx}`}>{props.user.name}</div>
+        <div className="username" id={`username-${props.idx}`}
+      onClick={props.checked ? props.handleClick : null}>{props.user.name}</div>
       </div>
       <Switch
         checked={props.checked ? true : false}

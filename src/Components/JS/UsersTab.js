@@ -11,8 +11,20 @@ export default function UsersTab(props) {
   const [keyword, setKeyword] = useState('');
   const [results, setResults] = useState([]);
   const [disabledUsers, setDisabledUsers] = useState([]);
+  const [images, setImages] = useState(props.images);
 
-  const handleClick = idx => {
+  const handleClick = async idx => {
+    if(users[idx].image === '') {
+        try {
+            let imageData = await fetch(`https://jsonplaceholder.typicode.com/photos/${props.user.id}`, { method: 'GET' });
+            let image = await imageData.json();
+            images[idx] = image.url;
+            setImages(images)
+          }
+          catch (err) {
+            alert("Error in fetching data. Please check your network connection");
+          }
+        }
     setPopupUser(idx);
   }
 
@@ -34,6 +46,8 @@ export default function UsersTab(props) {
   }
 
   useEffect(() => { }, [popupUser, results, disabledUsers])
+
+  useEffect(() => {updateKeyword(keyword)}, [keyword])
 
   return (
     <div className='users' onClick={() => {
@@ -63,7 +77,7 @@ export default function UsersTab(props) {
         </ul>
       </div>
 
-      {popupUser >= 0 ? <PopUp user={props.users[popupUser]} handleClick={() => setPopupUser(-1)} /> : <div></div>}
+      {popupUser >= 0 ? <PopUp updateImages={setImages} user={users[popupUser]} image={users[popupUser].image} handleClick={() => setPopupUser(-1)} /> : <div></div>}
     </div>
   )
 }

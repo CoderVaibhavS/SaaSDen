@@ -23,7 +23,12 @@ export default function GroupsTab(props) {
 
   return (
     <div className='groups users'>
+      <div className="header">
+        <div className="tabname">Groups</div>
+      </div>
+      <div className="subdomains-wrapper">
         {subdomains.map((subdomain, idx) => <Group key={idx} users={props.users} subdomain={`.${subdomain}`} />)}
+    </div>
     </div>
   )
 }

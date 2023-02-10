@@ -1,0 +1,19 @@
+.subdomain {
+    margin-bottom: 2rem;
+}
+
+.groups {
+    min-height: 100vh;
+}
+
+.subdomains-wrapper {
+height: 80vh;
+overflow-x: hidden;
+overflow-y: scroll;
+width: 100%;
+margin-top: 4rem;
+}
+
+.groups span {
+    opacity: 0;
+}

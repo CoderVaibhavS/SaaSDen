@@ -25,7 +25,6 @@
     justify-content: space-between;
     background-color: #ffffff;
     border-top: 2px solid #F9F8F9;
-    cursor: pointer;
 }
 
 .searched {
@@ -56,4 +55,5 @@
 
 .username {
     margin-left: .7rem;
+    cursor: pointer;
 }

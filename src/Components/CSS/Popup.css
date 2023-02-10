@@ -7,6 +7,16 @@
     padding: 1rem 1rem;
     background-color: #F0F1F0;
     box-shadow: 0 0 7px #CCD8E8;
+    animation: pop .5s ease both;
+}
+
+@keyframes pop {
+    0% {
+        clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+    }
+    100% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
 }
 
 .popup-wrapper {

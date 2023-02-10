@@ -3,18 +3,21 @@ import '../CSS/Popup.css'
 
 export default function PopUp(props) {
 
-    const [image, setImage] = useState('');
-
+    const [image, setImage] = useState(props.image);
+    
     const handleClick = async (evt) => {
         evt.stopPropagation();
-        try {
-            let imageData = await fetch(`https://jsonplaceholder.typicode.com/photos/${props.user.id}`, { method: 'GET' });
-            let image = await imageData.json();
-            setImage(image.url);
-          }
-          catch (err) {
-            alert("Error in fetching data. Please check your network connection");
-          }
+        // if(image === '')
+        // try {
+        //     let imageData = await fetch(`https://jsonplaceholder.typicode.com/photos/${props.user.id}`, { method: 'GET' });
+        //     let image = await imageData.json();
+        //     setImage(image.url);
+        //   }
+        //   catch (err) {
+        //     alert("Error in fetching data. Please check your network connection");
+        //   }
+        //   let images = props.images;
+        //   props.updateImages(images);
     }
 
     useEffect(() => {}, [image])
@@ -22,7 +25,7 @@ export default function PopUp(props) {
     return (
         <div className='popup' onClick={handleClick}>
             <div className="popup-wrapper">
-            <img style={image === '' ? {display: 'none'} : {display: 'block'}} src={image} alt="" />
+            <img src={image} alt="" />
             <div className='details'>
                 <h2 className="name">{props.user.name}</h2>
                 <span className="username">{props.user.username}</span>
