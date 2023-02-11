@@ -14,8 +14,6 @@ function App() {
     try {
       let usersData = await fetch('https://jsonplaceholder.typicode.com/users', { method: 'GET' });
       let users = await usersData.json();
-      images.push('');
-      setImages(images)
       setUsers(users);
     }
     catch (err) {
@@ -23,7 +21,16 @@ function App() {
     }
   }
 
-  useEffect(() => { getUsers() }, []);
+  useEffect(() => {
+    getUsers();
+  }, []);
+
+  useEffect(() => {
+    for (let i = 0; i < users.length && images.length < users.length; i++) {
+      images.push('');
+      setImages(images);
+    }
+  }, [users])
 
   return (
     <div className="App">

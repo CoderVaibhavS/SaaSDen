@@ -14,9 +14,9 @@ export default function UsersTab(props) {
   const [images, setImages] = useState(props.images);
 
   const handleClick = async idx => {
-    if(users[idx].image === '') {
+    if(images[idx] === '') {
         try {
-            let imageData = await fetch(`https://jsonplaceholder.typicode.com/photos/${props.user.id}`, { method: 'GET' });
+            let imageData = await fetch(`https://jsonplaceholder.typicode.com/photos/${users[idx].id}`, { method: 'GET' });
             let image = await imageData.json();
             images[idx] = image.url;
             setImages(images)
@@ -77,7 +77,7 @@ export default function UsersTab(props) {
         </ul>
       </div>
 
-      {popupUser >= 0 ? <PopUp updateImages={setImages} user={users[popupUser]} image={users[popupUser].image} handleClick={() => setPopupUser(-1)} /> : <div></div>}
+      {popupUser >= 0 ? <PopUp user={users[popupUser]} image={images[popupUser]} handleClick={() => setPopupUser(-1)} /> : <div></div>}
     </div>
   )
 }
